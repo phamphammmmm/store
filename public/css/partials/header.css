@@ -1,0 +1,226 @@
+header {
+    position: fixed;
+    background-color: #000;
+    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: solid 1px #fff;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+header .navbar .logo {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 20px;
+    color: white;
+}
+
+header .navbar h3{
+	color:  #ffffff;
+	font: normal 36px 'Roboto', cursive;
+	margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.cart a {
+    color: white;
+}
+.search{
+    margin: 5px 10px;
+    font-size: 20px;
+}
+.cart {
+    margin: 5px 20px;
+    font-size: 20px;
+}
+
+.btn-icon {
+    margin: 5px 40px 0px 0px;
+    display: flex;
+}
+header .navbar .btn-icon .menu{
+    display: none;
+}
+/* header .navbar .btn-icon .form  .input input{
+    display: none;
+} */
+
+header .navbar h3 span{
+	color:  #5383d3;
+}
+
+
+header .navbar .btn-icon  .searchform {
+    position: absolute;
+    top: -115%;
+    right: -12rem;
+    width: 50rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    height: 5.5rem;
+    
+}
+header .navbar .btn-icon  .searchform.active{
+    top: 115%;
+}
+header .navbar .btn-icon .searchform .input input{
+    height: 100%;
+    width: 100%;
+    padding: 0 1.2rem;
+    font-size: 1.6rem;
+    background: gray;
+    color: white;
+    text-transform: none;
+}
+header .navbar .btn-icon .searchform .input input::placeholder{
+    color: white;
+}
+header .navbar .btn-icon .shopingCart{
+    position: absolute;
+    top: 115%;
+    right: -105%;
+    background: gray;
+    border-radius: .5rem;
+    width: 16rem;
+    padding: 2rem;
+}
+header .navbar .btn-icon .shopingCart.active{
+    right: 2rem;
+}
+header .navbar .btn-icon .shopingCart .box{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+} 
+header .navbar .btn-icon .shopingCart .btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    background: white;
+    color: #000;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 63%;
+    text-align: center;
+    border-radius: 10px;
+}
+header .navbar .btn-icon .shopingCart .btn:hover{
+    background: #000;
+    color: white;
+}
+header .navbar .btn-icon .shopingCart .box .fa-times{
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+header .navbar .btn-icon .shopingCart .box .fa-times:hover{
+    color: #000;
+}
+
+header .navbar .btn-icon .shopingCart .box img{
+    height: 4rem;
+}
+header .navbar .btn-icon .shopingCart .box .content{
+    width: 60%;
+}
+header .navbar .btn-icon .shopingCart .box .content h3{
+    font-size: 1.7rem;
+    width: 60%;
+    color: #000;
+}
+header .navbar .btn-icon .shopingCart .box .content span{
+    font-size: 1rem;
+
+}
+header .navbar .btn-icon .shopingCart .box .content span .multiply{
+    margin: 0 .5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:991px){
+    header .navbar {
+        height: 100px;
+        padding: 30px;
+    }
+    header .navbar h3{
+        font-size: 28px;
+    }
+    header .navbar .button ul li{
+        font-size: 22px;
+    }
+}
+
+
+
+@media(max-width:768){
+    header{
+        position: fixed;
+    }
+    header .navbar{
+        padding: 20px;
+    }
+
+    header .navbar .btn-icon .form  .input input{
+        display: none;
+    }
+}
+
+@media(max-width:450px){
+    header .navbar .button{
+        display: none;
+    }
+    header .navbar .btn-icon{
+        justify-content: center;
+        align-items: center;
+    }
+    header .navbar .btn-icon .menu{
+        display: block;
+    }
+    header .navbar .btn-icon .form{
+        display: block;
+        display: flex;
+        align-items: center;
+    }
+    header .navbar .btn-icon .form  .input input{
+        display: block;
+        background: #404246;
+    color: white;
+    }
+    header .navbar .btn-icon .form .search {
+        font-size: 15px;
+    }
+}

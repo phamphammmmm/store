@@ -1,0 +1,133 @@
+.container-bill .box-left .name-customer .order .products .img img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+}
+.container-bill .box-left {
+    padding: 4%;
+    width: 45rem;
+}
+.container-bill {
+    display: flex;
+}
+.container-bill .box-right {
+    width: 30%;
+    padding: 20px;
+    margin-top: 3%;
+    background: #f5f5f5;
+}
+.container-bill .box-left .name-customer .name {
+    text-align: right;
+    margin-top: 5%;
+    margin-bottom: 7%;
+}
+.container-bill .box-left .name-customer .your-order {
+    font-size: 20px;
+    border-bottom: 2px solid #cfcfcf;
+    padding: 17px 0;
+    margin: 0;
+}
+.container-bill .box-left .name-customer .time-order {
+    display: flex;
+    gap: 73px;
+}
+.container-bill .box-left .name-customer .time-order .order-date p {
+    color: #afafaf;
+    margin: 10px 0;
+}
+.container-bill .box-left .name-customer .order {
+    margin-top: 5%;
+}
+.container-bill .box-left .name-customer .time-order .order-no p {
+    color: #afafaf;
+    margin: 10px 0;
+}
+.container-bill .box-left .name-customer .time-order .Status p {
+    color: #afafaf;
+    margin: 10px 0;
+}
+.container-bill .box-left .name-customer .time-order .address p {
+    color: #afafaf;
+    margin: 10px 0;
+}
+.container-bill .box-left .name-customer .time-order {
+    border-bottom: 2px solid #cfcfcf;
+    padding: 17px 0;
+}
+.container-bill .box-left .name-customer .order .products {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 10px 0;
+}
+
+.container-bill .box-left .name-customer .order .products .img {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+.container-bill .box-left .name-customer .order .products .info {
+    flex: 1 0 auto;
+}
+
+.container-bill .box-left .name-customer .order .products .price {
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+.container-bill .box-left .name-customer .order .products .info .name-prd {
+    font-weight: 600;
+}
+.container-bill .box-left .name-customer .order .products .info .quantity {
+    color: #afafaf;
+}
+.container-bill .box-left .name-customer .order .products .info .Color {
+    color: #afafaf;
+}
+.container-bill .box-right .pay .title {
+    margin-bottom: 10%;
+    font-size: 25px;
+}
+.container-bill .box-right .pay {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #afafaf;
+}
+.container-bill .box-right .pay .sub {
+    color: #afafaf;
+    display: flex;
+    gap: 70%;
+}
+.container-bill .box-right .pay .sub span {
+    color: #000;
+}
+.container-bill .box-right .pay .deli {
+    color: #afafaf;
+    display: flex;
+    gap: 70%;
+}
+.container-bill .box-right .pay .deli span {
+    color: #000;
+}
+.container-bill .box-right .total {
+    color: #afafaf;
+    display: flex;
+    gap: 65%;
+}
+.container-bill .box-right .total span {
+    color: #000;
+}
+.container-bill .box-right .pay-method {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.container-bill .box-right .pay-method img {
+    height: 2rem;
+}
+.container-bill .box-right .pay-method .info .account {
+    font-size: 20px;
+}
+.container-bill .box-right .pay-method .info .name {
+    color: #afafaf;
+}

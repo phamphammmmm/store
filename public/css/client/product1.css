@@ -1,0 +1,108 @@
+.container-product h1 {
+    font-size: 38px;
+    margin-top: 7%;
+    text-align: center;
+    font: normal 36px "Roboto", cursive;
+}
+
+.container-product .select {
+    display: flex;
+    gap: 18%;
+    padding: 2%;
+    align-items: center;
+}
+.container-product .select .search-select select option:hover {
+    background: gray;
+    color: white;
+}
+.container-product .select .search-select {
+    margin: 20px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.container-product .select .search-select select {
+    padding: 1.5%;
+}
+.container-product .select .sort select {
+    padding: 9.5%;
+}
+
+.container-product .show-product .box .product-list.img img {
+    height: 13rem;
+}
+.container-product .show-product {
+    text-align: center;
+}
+.container-product .show-product .box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 65px;
+    padding: 4%;
+}
+.container-product .show-product .box .product-list {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 10%;
+}
+.container-product .show-product .box .product h6 {
+    font-size: 13px;
+    height: 10%;
+    margin: 15px 10px 0;
+}
+.container-product .show-product .box .product-list p {
+    margin: 0 10px 10px;
+    color: gray;
+    font-size: 12px;
+}
+.container-product .show-product .box .product-list .price {
+    margin: 5px 10px;
+    font-size: 14px;
+}
+.container-product .show-product .box .product-list .year p {
+    font-size: 12px;
+    color: #000;
+}
+.container-product .show-product .box .product-list .year p span {
+    font-size: 10px;
+    margin-left: 10px;
+    color: gray;
+}
+
+@media (max-width: 991px) {
+    .container-product .select {
+        gap: 33%;
+    }
+    .container-product .show-product {
+        width: 144%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-product .select {
+        gap: 28%;
+    }
+    .container-product {
+        width: 125%;
+    }
+    .container-product .show-product .box {
+        padding: 9%;
+    }
+}
+
+@media (max-width: 450px) {
+    .container-product {
+        width: 188%;
+    }
+    .container-product .show-product .box {
+        padding: 13%;
+    }
+    .container-product .select .sort select {
+        padding: 5.5%;
+    }
+    .container-product .select {
+        gap: 24%;
+    }
+    .container-product .select .search-select select {
+        padding: 0.5%;
+    }
+}

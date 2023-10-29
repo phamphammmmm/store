@@ -1,0 +1,523 @@
+body {
+    margin: 0;
+}
+
+/* icon */
+
+.fa-facebook:before {
+    content: "\f09a";
+    /* background: black; */
+    color: #0676e8;
+    background: white;
+    border-radius: 50px;
+    /* border: 1px solid #0676e8; */
+    /* width: 100%; */
+}
+
+.fa-twitter:before {
+    content: "\f099";
+    color: #1da1f2;
+    background: white;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 15px;
+}
+
+i.fab.fa-linkedin {
+    color: #0073b2;
+    background: white;
+    height: 17px;
+}
+
+.container .section1 .content .famous-branch .image {
+    width: 108%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.container .section1 .content .title .learn-more button {
+    height: 35px;
+    border-radius: 20px;
+    width: 105px;
+    color: white;
+    background: #161c1e;
+}
+.section1 {
+    margin-bottom: 50px;
+    padding: 100px 55px 0;
+    width: 100%;
+}
+
+.container .section2 .product .preview-images {
+    width: 150px;
+    height: 180px;
+}
+.container .section1 .content .title .title-small {
+    font-weight: 900;
+}
+button h3 {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.container .section2 {
+    width: 82%;
+    height: 320px;
+    background: #161c1e;
+    border-radius: 0 90px 0 0;
+    display: flex;
+    gap: 20px;
+}
+
+.container .section1 .content .title .learn-more .learn span {
+    margin-left: 5px;
+    font-size: 12px;
+}
+.container .section1 .content .title .learn-more .learn {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+.container .section2 .preview-images {
+    display: flex;
+    gap: 20px;
+    margin-top: 35px;
+    margin-right: 43px;
+}
+.container .section2 .preview-images .img .info .infomation {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.container .section2 .product {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 46%;
+}
+.container .section2 .preview-images .img .info {
+    height: 246px;
+    background: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+.span {
+    font-size: 11px;
+    font-weight: 900;
+}
+.info p {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 13px;
+}
+.container .section2 .preview-images .img .info img {
+    width: 142px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.learn-more {
+    display: flex;
+    gap: 20px;
+    height: 35px;
+}
+/* 
+.spacing {
+    width: 350px;
+} */
+.reviews {
+    width: 258px;
+    position: absolute;
+    right: 0%;
+    background: #161c1e;
+    padding: 15px;
+    border-radius: 30px;
+}
+.review-content p {
+    color: gray;
+}
+.review-content .user h3 {
+    color: white;
+}
+/* .review-content .user{
+    display: flex;
+    gap: 10px;
+} */
+
+.review-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+}
+
+.review-content .user h3 {
+    font-size: 13px;
+}
+.review-content .user p {
+    font-size: 12px;
+    width: 163px;
+}
+.review-content img {
+    width: 76px;
+    height: 50px;
+    border-radius: 50%;
+}
+.title h3 {
+    /* position: absolute; */
+    /* top: 16px; */
+    left: 226px;
+    /* /* color: white; */
+}
+.title h2 {
+    color: white;
+    font-size: 18px;
+}
+.reviews {
+    height: 335px;
+}
+.container .section2 .reviews .title h3 {
+    width: 268px;
+    font-size: 15px;
+    color: gray;
+}
+.reviews p {
+    color: gray;
+}
+.reviews .title {
+    display: flex;
+    gap: 82px;
+}
+.reviews .title h3 span {
+    color: white;
+}
+.title h3 span {
+    /* color: white; */
+}
+.container {
+    width: 90%;
+}
+h1 {
+    font-size: 74px;
+}
+h3 {
+    font-weight: 100;
+    color: #666263;
+    width: 650px;
+}
+.container .section1 .content {
+    display: flex;
+}
+
+.button ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.button ul li {
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+.button ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.button ul li a:hover {
+    text-decoration: underline;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+ul .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 200px;
+    display: none;
+}
+ul .dropdown:hover .dropdown-content {
+    display: block;
+}
+.button.active {
+    display: block;
+}
+ul .dropdown .dropdown-content a {
+    display: block !important;
+    background-color: purple;
+}
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+/* user */
+.dropdown-user {
+    display: flex;
+    position: relative;
+    margin-right: 14px;
+}
+
+.dropbtn-user {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+.dropdown-login {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.navbar .dropdown-user .dropdown-login a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.dropdown-user:hover .dropdown-login {
+    display: flex;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 1130px) {
+    .container .section1 {
+        width: 144%;
+    }
+    .container .section1 .content .title h1 {
+        width: 92%;
+    }
+}
+
+@media (max-width: 991px) {
+    .container .section1 {
+        width: 149%;
+    }
+    .container .section2 {
+        width: 112%;
+        height: 341px;
+    }
+    .container .section2 .reviews {
+        width: 350px;
+    }
+    .container .section2 .reviews .title {
+        gap: 120px;
+    }
+    .container .section2 .reviews .review-content img {
+        width: 66px;
+        height: 66px;
+    }
+    .container .section2 .reviews .review-content .user h3 {
+        font-size: 15px;
+    }
+    .container .section2 .reviews .review-content .user p {
+        font-size: 14px;
+        width: 250px;
+    }
+    .container .section2 .reviews .title h2 {
+        font-size: 24px;
+    }
+    .container .section2 .reviews .title h3 {
+        font-size: 20px;
+    }
+    .container .section2 .product .preview-images .img .info {
+        height: 268px;
+    }
+    .container .section2 .product .preview-images .img .info .infomation .span {
+        font-size: 14px;
+    }
+    .container .section2 .product .preview-images .img .info .infomation p {
+        font-size: 16px;
+    }
+    .container .section2 .product .preview-images .img .info img {
+        width: 160px;
+        height: 193px;
+    }
+    .container .section1 .content {
+        margin-top: 50px;
+    }
+    .container .section1 .content .title h3 {
+        font-size: 22px;
+        width: 70%;
+    }
+    .container .section1 .content .famous-branch .image {
+        width: 85%;
+    }
+    .container .section1 .content .title .learn-more button {
+        font-size: 15px;
+        height: 40px;
+        width: 120px;
+    }
+    .container .section2 .reviews {
+        right: -45%;
+    }
+    .container .section2 .reviews .review-content .user {
+        width: 73%;
+    }
+    .container .section2 .reviews .review-content .user h3 {
+        width: 180px;
+    }
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+    .container .section1 {
+        width: 123%;
+    }
+    .container .section1 .content .title h1 {
+        font-size: 35px;
+    }
+    .container .section2 {
+        height: 230px;
+        width: 93%;
+    }
+
+    .container .section2 .product {
+        width: 52%;
+    }
+    .container .section2 .product .preview-images .img .info img {
+        width: 102px;
+        height: 103px;
+        object-fit: cover;
+    }
+    .container .section2 .product .preview-images {
+        margin-top: 22px;
+    }
+    .container .section2 .product .preview-images .img .info {
+        height: 178px;
+    }
+    .container .section1 .content .title .learn-more {
+        width: 100%;
+    }
+    .container .section1 .content .title h3 {
+        width: 100%;
+    }
+    .container .section1 .content .famous-branch .image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .container .section1 .content .title .learn-more button {
+        width: 47%;
+    }
+    .container .section2 .reviews {
+        width: 30%;
+        right: -22%;
+    }
+    .container .section2 .reviews .title {
+        gap: 85px;
+        height: 7%;
+    }
+    .container .section2 .reviews p {
+        width: 210px;
+        font-size: 10px;
+    }
+    .container .section2 .reviews .review-content .user p {
+        font-size: 11px;
+        width: 166px;
+    }
+    .container .section2 .reviews .title h2 {
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+    }
+    .container .section2 .reviews .title h3 {
+        font-size: 10px;
+    }
+    .container .section2 .reviews .review-content img {
+        width: 35px;
+        height: 35px;
+    }
+    .container .section2 .reviews .review-content .user h3 {
+        font-size: 12px;
+        width: 80%;
+    }
+    .button ul li {
+        margin-right: 0;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 450px) {
+    .container .section1 .content .title h1 {
+        font-size: 26px;
+    }
+    .container .section1 {
+        width: 172%;
+    }
+    .container .section1 .content .title .learn-more .learn span {
+        font-size: 20px;
+    }
+    .container .section1 .content .famous-branch .image {
+        object-fit: cover;
+        width: 127%;
+        height: 100%;
+    }
+    .container .section2 {
+        height: 230px;
+        width: 200%;
+    }
+    .container .section2 .product .preview-images {
+        margin-top: 20px;
+    }
+    .container .section2 .product .preview-images .img .info {
+        height: 177px;
+    }
+    .container .section2 .product .preview-images .img .info img {
+        width: 119px;
+        height: 98px;
+        object-fit: cover;
+    }
+    .container .section2 .product {
+        width: 55%;
+    }
+    .container .section2 .reviews {
+        display: none;
+    }
+}
+
+.title {
+    width: 70%;
+}
+.famous-branch {
+    height: 410px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+}
+.famous-branch img {
+    margin-left: 50px;
+    width: 250px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 20px;
+    height: 300px;
+}
+a {
+    text-decoration: none;
+}
+.brand-preview img {
+    width: 60px;
+    height: 60px;
+}
+.brand-preview {
+    display: flex;
+    gap: 30px;
+}
