@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/admin/category.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/brand.css') }}">
     </style>
 </head>
 
@@ -18,12 +18,12 @@
     <div class="container">
         <div class="header">
             <h1>Brand</h1>
-            <div class="add-category-container">
-                <button id="addCategoryBtn" class="add-category-btn">Add Brand</button>
+            <div class="add-brand-container">
+                <button id="addBrandBtn" class="add-Brand-btn">Add Brand</button>
             </div>
         </div>
         @if (!empty($brands))
-        <div class="content-category">
+        <div class="content-brand">
             <table>
                 <thead>
                     <tr>
@@ -65,23 +65,22 @@
     </div>
 
     <!-- Add popup -->
-    <div class="popup-overlay" id="addCategoryPopup">
+    <div class="popup-overlay" id="addBrandPopup">
         <div class="popup-content">
             <h3>Add Brand</h3>
-            <form id="editCategoryForm" action="{{ route('brand.create') }}" method="POST"
-                enctype="multipart/form-data">
+            <form id="editBrandForm" action="{{ route('brand.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="form-row">
-                    <label for="categoryName">Brand Name:</label>
-                    <input type="text" id="categoryName" name="name" required>
+                    <label for="BrandName">Brand Name:</label>
+                    <input type="text" id="BrandName" name="name" required>
                 </div>
 
                 <div class="form-row">
                     <label for="path">Preview:</label>
                     <input type="file" name="path" accept="image/*">
                 </div>
-                <button type="submit" id="addCategoryPopupBtn" class="add-button">Save</button>
+                <button type="submit" id="addBrandPopupBtn" class="add-button">Save</button>
             </form>
         </div>
     </div>
@@ -89,15 +88,14 @@
     <!-- Edit popup -->
     <div class="popup-overlay">
         <div class="popup-content">
-            <h2>Edit Category</h2>
-            <form id="editCategoryForm" action="{{ route('category.update') }}" method="POST"
-                enctype="multipart/form-data">
+            <h2>Edit Brand</h2>
+            <form id="editBrandForm" action="{{ route('brand.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <input type="hidden" id="category_id" name="category_id" value="">
+                <input type="hidden" id="Brand_id" name="Brand_id" value="">
                 <div class="form-row">
-                    <label for="name">Category:</label>
-                    <input type="text" id="name" name="name" placeholder="Category Name">
+                    <label for="name">Brand:</label>
+                    <input type="text" id="name" name="name" placeholder="Brand Name">
                 </div>
                 <div class="form-row">
                     <label for="path">Preview:</label>
@@ -109,7 +107,7 @@
     </div>
     @endsection
     @section('footer')
-    <script src="{{ asset('js/admin/category.js') }}"></script>
+    <script src="{{ asset('js/admin/brand.js') }}"></script>
 </body>
 
 </html>

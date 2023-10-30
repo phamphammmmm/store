@@ -51,10 +51,11 @@
                             <button class="edit-category-btn" data-id="{{ $category->id }}">
                                 <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
                             </button>
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('category.delete', ['id' => $category->id]) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Are you sure to delete?')">
+                                <button type="submit" onclick="return confirm('Are you sure to delete?')"
+                                    id="delete-feedback-btn">
                                     <img src="{{asset('storage/logo/trash.png')}}" alt="trash">
                                 </button>
                             </form>
@@ -82,10 +83,10 @@
                     <label for="name">Category:</label>
                     <input type="text" id="name" name="name" placeholder="Category Name">
                 </div>
-                <!-- <div class="form-row">
+                <div class="form-row">
                     <label for="path">Preview:</label>
                     <input type="file" name="path" accept="image/*">
-                </div> -->
+                </div>
                 <button type="submit" id="save-button" class="save-button">Save</button>
             </form>
         </div>

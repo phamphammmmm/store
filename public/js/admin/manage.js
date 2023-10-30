@@ -45,18 +45,14 @@ openPopupButtons.forEach(function (button) {
                 console.log(userData);
 
                 const editUserIdInput = document.getElementById('editUserId');
-                const editTypeSelect = document.getElementById('editType');
+                const editRoleSelect = document.getElementById('editRole');
                 const editEmailInput = document.getElementById('editEmail');
-                const editFullnameInput = document.getElementById('editFullname');
-                const editMajorInput = document.getElementById('editMajor');
                 const editNameInput = document.getElementById('editName');
 
                 editUserIdInput.value = userData.id;
                 editNameInput.value = userData.name;
-                editFullnameInput.value = userData.fullname;
-                editMajorInput.value = userData.major;
                 editEmailInput.value = userData.email;
-                editTypeSelect.value = userData.type;
+                editRoleSelect.value = userData.role;
 
             } else {
                 console.error('Failed to fetch User data');

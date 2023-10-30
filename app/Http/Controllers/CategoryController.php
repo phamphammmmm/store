@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use PDF;
 use App\Models\Job;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
 class CategoryController extends Controller
@@ -61,20 +63,45 @@ class CategoryController extends Controller
         $category_id = $request->input('category_id');
 
         $category = Category::findOrFail($category_id);
+
+        // Get the old image path before updating
+        $oldPath = $category->path;
+
         $category->name = $name;
 
         if ($request->hasFile('path')) {
             $request->validate([
                 'path' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
-            $avatarPath = $request->file('path')->store('public/category');
-            $avatarFileURL = '/storage/category' . basename($avatarPath);
-            $category->path = $avatarFileURL;
+
+            // Upload the new image
+            $categoryPath = $request->file('path')->store('public/category');
+            $categoryFileURL = '/storage/category/' . basename($categoryPath);
+            $category->path = $categoryFileURL;
+
+            // Delete the old image
+            if ($oldPath && Storage::exists($oldPath)) {
+                Storage::delete($oldPath);
+            }
         }
 
         $category->save();
 
         return redirect()->route('category.show')->with('success', 'Category updated successfully');
+    }
+
+    public function delete($id)
+    {
+        $category = Category::find($id);
+
+        if ($category) {
+            Product::where('category_id', $category->id)->update(['category_id' => null]);
+            $category->delete();
+            
+            return redirect()->back()->with('success', 'Category deleted successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Category not found.');
+        }
     }
 
     public function getTopCategoriesWithMostJobs()

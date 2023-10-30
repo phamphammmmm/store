@@ -1,4 +1,4 @@
-.content-category {
+.content-brand {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 5px 15px;
     border-radius: 15px;
@@ -32,7 +32,7 @@ td {
     align-items: center;
 }
 
-.add-category-btn {
+.add-brand-btn {
     padding: 10px;
     height: 40px;
     border: none;
@@ -42,7 +42,7 @@ td {
     cursor: pointer;
 }
 
-.add-category-container {
+.add-brand-container {
     display: flex;
     justify-content: flex-end;
 }

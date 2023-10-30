@@ -63,7 +63,7 @@
                         <th></th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Roll</th>
+                        <th>Role</th>
                         <th>Create_at</th>
                         <th class="actions">Actions</th>
                     </tr>
@@ -124,10 +124,13 @@
                 <label for="password">Password:</label>
                 <input type="text" name="password" id="password">
 
+                <label for="phone">Phone*</label>
+                <input type="text" name="phone" id="phone" placeholder="phone">
+
                 <label for="email">Email*</label>
                 <input type="text" name="email" id="email" placeholder="Email">
 
-                <button type="submit" id="add-btn-save" name="addmember">Save</button>
+                <button type="submit" id="add-btn-save">Save</button>
             </form>
         </div>
     </div>
@@ -142,18 +145,17 @@
                 <input type="hidden" name="editUserId" value="" id="editUserId">
 
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="Name">
+                <input type="text" name="name" id="editName" placeholder="Name">
 
                 <label for="email">Email*</label>
                 <input type="text" name="email" id="editEmail" placeholder="Email">
 
                 <label for="role">Role*</label>
-                <select name="role" id="editrole">
+                <select name="role" id="editRole">
                     <option value="admin">Admin</option>
                     <option value="moderator">Moderator</option>
                     <option value="user">User</option>
                 </select>
-
                 <button type="submit" class="save-button">Save</button>
             </form>
         </div>

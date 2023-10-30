@@ -23,7 +23,6 @@ class RegisterController extends Controller
         ]);
 
         $phone = Str::startsWith($request->phone, '+84') ? $request->phone : '+84' . $request->phone;
-        
         $path = $request->file('path');
         if ($request->hasFile('path')) {
             $avatarPath = $path->store('public/avatar');

@@ -113,11 +113,13 @@ Route::post('/receipt/save',[ReceiptController::class, 'save'])->name('receipt.s
 Route::get('/brand/show',[BrandController::class,'show'])->name('brand.show');
 Route::post('/brand/create',[BrandController::class,'create'])->name('brand.create');
 Route::delete('/brand/{id}',[BrandController::class,'delete'])->name('brand.delete');
+Route::post('/brand/update', [BrandController::class, 'update'])->name('brand.update');
 
 Route::get('/category/view', [CategoryController::class, 'view'])->name('category.view');
 Route::get('/category/show', [CategoryController::class, 'show'])->name('category.show');
 Route::post('/category/create', [CategoryController::class, 'create'])->name('category.create');
 Route::post('/category/update', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 
 Route::get('/product/view',[ProductController::class,'view'])->name('product.view');
 Route::get('/product/show',[ProductController::class,'show'])->name('product.show');
