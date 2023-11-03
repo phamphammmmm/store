@@ -18,12 +18,7 @@ class OrderController extends Controller
     public function view($orderId)
     {
         $order = Order::with('receipts.product')->findOrFail($orderId);
-        return view('order', compact('order'));
-    }
-
-    public function view1()
-    {
-        return view('order1');
+        return view('client.order', compact('order'));
     }
     
 }

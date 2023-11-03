@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipt Details</title>
-    <link rel="stylesheet" href="{{ asset('css/order.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client/order.css') }}">
 
 </head>
 
 <body>
+    @extends('layout.layout')
+    @section('title', 'Trang chủ')
+    @section('content')
     <div class="container">
-        @extends('layout')
-        @section('title', 'Trang chủ')
-        @section('content')
 
         <!-- Button trigger modal -->
         <div class="container-bill">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="info">
                                 <p class="name-prd">
-                                    {{ $receipt->product_name }}
+                                    {{ $receipt->product->name }}
                                 </p>
                                 <p class="quantity">quantity:{{ $receipt->quantity }}</p>
                                 <p class="Color">Color: red</p>

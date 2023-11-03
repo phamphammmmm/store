@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -49,16 +50,56 @@ class BrandController extends Controller
         return redirect()->back()->with('success', 'brand created successfully');
     }
 
-    public function delete(Brand $id)
+    public function update(Request $request)
+    {
+        $request->validate([
+            'brand_id' => 'required',
+            'name' => 'required|max:255',
+            'path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $name = $request->input('name');
+        $brand_id = $request->input('brand_id');
+
+        $brand = Brand::findOrFail($brand_id);
+
+        $oldPath = $brand->path;
+
+        $brand->name = $name;
+
+        if ($request->hasFile('path')) {
+            $request->validate([
+                'path' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+
+            // Upload the new image
+            $brandPath = $request->file('path')->store('public/brand');
+            $brandFileURL = '/storage/brand/' . basename($brandPath);
+            $brand->path = $brandFileURL;
+
+            // Delete the old image
+            if ($oldPath && Storage::exists($oldPath)) {
+                Storage::delete($oldPath);
+            }
+        }
+
+        $brand->save();
+
+        return redirect()->route('brand.show')->with('success', 'brand updated successfully');
+    }
+    
+    public function delete($id)
     {
         $brand = Brand::find($id);
-        
-        if (!$brand) {
+
+        if ($brand) {
+            $brand->products()->delete();
+            $brand->delete();
+
+            return redirect()->back()->with('success', 'brand and associated products deleted successfully.');
+        } else {
             return redirect()->back()->with('error', 'brand not found.');
         }
-        
-        $brand->delete();
-        return redirect()->route('brand.view')->with('success', 'brand deleted successfully.');
     }
 
     public function getCategories()

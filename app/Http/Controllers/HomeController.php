@@ -16,11 +16,11 @@ class HomeController extends Controller
 
     public function header()
     {
-        return view('client.header');
+        return view('partials.header');
     }
 
     public function footer()
     {
-        return view('client.footer');
+        return view('partials.footer');
     }
 }

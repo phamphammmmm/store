@@ -6,23 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- link css -->
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/product.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-
-    <!-- link fontawesome -->
+    <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
     <header>
         <div class="navbar">
-            <h3>SMART</h3>
+            <h3>AZstore</h3>
             <div class="button">
                 <ul>
                     <li><a href="{{route('home')}}">Home</a></li>
@@ -40,15 +33,25 @@
                 <div class="cart" id="cart-btn">
                     <a href="{{route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
-                <div class="dropdown-user">
-                    <button class="dropbtn-user"><i class="fa-solid fa-user"></i></button>
-                    <div class="dropdown-login">
-                        <a href="login.php" id="loginBtn">Login</a>
-                        <a href="{{route('logout')}}" id="logoutBtn">Logout</a>
+                <div id="avatar-container">
+                    @if (Auth::check())
+                    @php
+                    $user = Auth::user();
+                    $avatarPath = $user->path ? asset($user->path) : asset('storage/avatar/avatar.jpg');
+                    @endphp
+                    <img src="{{ $avatarPath }}" alt="Avatar" id="avatar">
+                    @endif
+                    <div id="popup" class="hidden">
+                        <form action="{{ route('logout') }}" method="POST" style="display:flex;">
+                            @csrf
+                            <button type="submit" class="logout-btn">Logout
+                            </button>
+                        </form>
                     </div>
                 </div>
-
-                <div class="menu" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
             </div>
         </div>
     </header>
+</body>
+
+</html>

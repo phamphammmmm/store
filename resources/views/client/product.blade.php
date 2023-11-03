@@ -3,11 +3,11 @@
 
 <head>
     <title>Product</title>
-    <link rel="stylesheet" href="{{ asset('css/product.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client/product.css') }}">
 </head>
 
 <body>
-    @extends('layout')
+    @extends('layout.layout')
     @section('title', 'Trang chủ')
     @section('content')
     <h3>Product Items</h3>
@@ -76,8 +76,8 @@ border-radius: 5px;color: white;background: #00884b;border: none;">Search</butto
                             <p>Price: {{ $product->price }}</p>
                         </div>
                         <p class="hidden">Description: {{ $product->description }}</p>
-                        <p class="hidden">Brand: {{ $product->brand->name }}</p>
-                        <p class="hidden">Category: {{ $product->category->name }}</p>
+                        <p>Brand: {{ $product->brand->name }}</p>
+                        <p>Category: {{ $product->category->name }}</p>
                         <button class="view-product-btn" data-product-id="{{ $product->id }}">View</button>
                     </li>
                     @endforeach
@@ -88,7 +88,7 @@ border-radius: 5px;color: white;background: #00884b;border: none;">Search</butto
 
     <div class="product-popup" id="productPopup">
         <div class="product-popup-content">
-            <form class="add-to-cart-form" action="" method="POST" enctype="multipart/form-data">
+            <form class="add-to-cart-form" action="{{route('cart.add')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <input type="hidden" name="product_id" value="">
@@ -124,11 +124,11 @@ border-radius: 5px;color: white;background: #00884b;border: none;">Search</butto
             button.addEventListener("click", function() {
                 productId = button.dataset.productId;
                 ProductId = productId;
-                fetch(`/api/products/${productId}`)
+                fetch(`/api/product/${productId}`)
                     .then(response => response.json())
                     .then(product => {
-                        const popupProductName = popup.querySelector(
-                            ".popup-product-name");
+
+                        const popupProductName = popup.querySelector(".popup-product-name");
                         const popupProductImage = popup.querySelector(
                             ".popup-product-image");
                         const popupProductPrice = popup.querySelector(
@@ -145,33 +145,16 @@ border-radius: 5px;color: white;background: #00884b;border: none;">Search</butto
                         popupProductImage.src = product.image;
                         popupProductPrice.textContent = "Price: " + product.price;
                         popupProductDescription.textContent = "Description: " +
-                            product
-                            .description;
-                        popupProductBrand.textContent = "Brand: " + product.brand
-                            .name;
+                            product.description;
+                        popupProductBrand.textContent = "Brand: " + product.brand;
                         popupProductCategory.textContent = "Category: " + product.category
-                            .name;
-
                         popup.style.display = "block";
                     });
             });
         });
 
         addToCartForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const formData = new FormData(addToCartForm);
-
-            fetch(`/cart/add/${ProductId}`, {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    popup.style.display = "none";
-                    popup.reload();
-
-                });
+            popup.style.display = "none";
         });
 
         popup.addEventListener('click', (event) => {

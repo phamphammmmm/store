@@ -31,7 +31,12 @@ td {
     justify-content: space-between;
     align-items: center;
 }
-
+.path img {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+}
 .add-brand-btn {
     padding: 10px;
     height: 40px;
@@ -72,6 +77,10 @@ td {
 .action-buttons button {
     background: #fff;
     border: none;
+}
+.action-buttons img {
+    width: 18px;
+    height: 18px;
 }
 /*popup*/
 .popup-overlay {

@@ -9,7 +9,7 @@ class Receipt extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_name', 'quantity', 'total', 'order_id'];
+    protected $fillable = ['product_id', 'quantity', 'total', 'order_id'];
 
     public function user()
     {
@@ -19,7 +19,7 @@ class Receipt extends Model
     // Receipt.php
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_name', 'name');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
 

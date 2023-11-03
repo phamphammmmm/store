@@ -5,38 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/partials/footer.css') }}">
 </head>
 
 <body>
     <footer class="footer-distributed">
-
         <div class="footer-left">
-
             <h3>SMART<span>logo</span></h3>
-
             <p class="footer-links">
                 <a href="#">Home</a>
-                ·
                 <a href="#">Blog</a>
-                ·
                 <a href="#">Pricing</a>
-                ·
                 <a href="#">About</a>
-                ·
                 <a href="#">Contact</a>
             </p>
-
             <p class="footer-company-name">Company Name © 2015</p>
-
             <div class="footer-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-github"></i></a>
             </div>
-
-
         </div>
         <div class="fter-right">
             <div class="address">
@@ -53,20 +42,16 @@
             </div>
         </div>
         <div class="footer-right">
-
             <p>Contact Us</p>
-
-            <form action="#" method="post">
-
+            <form action="{{route('contact.create')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
                 <input type="email" name="email" placeholder="Email"
                     style="width: 400px;height: 20px; border-radius: 5px;">
                 <textarea type="text" name="message" placeholder="Message" style="height:50px;"></textarea>
-                <button>Send</button>
-
+                <button type="submit">Send</button>
             </form>
-
         </div>
-
     </footer>
 
 

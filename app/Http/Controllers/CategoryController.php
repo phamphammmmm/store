@@ -95,36 +95,14 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         if ($category) {
-            Product::where('category_id', $category->id)->update(['category_id' => null]);
+            // Delete the associated products
+            $category->products()->delete();
+
             $category->delete();
-            
-            return redirect()->back()->with('success', 'Category deleted successfully.');
+
+            return redirect()->back()->with('success', 'Category and associated products deleted successfully.');
         } else {
             return redirect()->back()->with('error', 'Category not found.');
         }
-    }
-
-    public function getTopCategoriesWithMostJobs()
-    {
-        $categories = Category::withCount('jobs')->orderByDesc('jobs_count')->take(5)->get();
-
-        return $categories;
-    }
-
-    public function getCategoryData()
-    {
-        $categories = Category::withCount('jobs')->orderBy('created_at','asc')->get(['id', 'name']);
-
-        return response()->json($categories);
-    }
-
-
-    public function export()
-    {
-        $categories = Category::all();
-
-        $pdf = PDF::loadView('pdf.categories', compact('categories'));
-
-        return $pdf->download('categories.pdf');
     }
 }

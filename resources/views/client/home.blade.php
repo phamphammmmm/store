@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client/home.css') }}">
 </head>
 
 <body>
@@ -29,10 +29,10 @@
                     </div>
                     <h3 class="title-small">Collaborate with the best brands</h3>
                     <div class="brand-preview">
-                        <img src="storage/home/rolex.png" alt="rolex">
-                        <img src="storage/home/breguet.png" alt="breguet">
-                        <img src="storage/home/hoblot.png" alt="hublot">
-                        <img src="storage/home/zenith.png" alt="zenith">
+                        <img src="storage/logo/Philips.jpg" alt="philip">
+                        <img src="storage/logo/kangaroo.jpg" alt="kangaroo">
+                        <img src="storage/logo/sunhouse.jpg" alt="sunhouse">
+                        <img src="storage/logo/toshiba.png" alt="toshiba">
                     </div>
                 </div>
                 <div class="famous-branch">

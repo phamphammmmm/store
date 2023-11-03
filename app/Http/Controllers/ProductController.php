@@ -58,7 +58,7 @@ class ProductController extends Controller
         $products = $products->get();
         $brands = Brand::pluck('name');
         $categories = Category::pluck('name');
-        return view('product', compact('products', 'brands', 'categories', 'initialProductCount', 'filteredProductCount'));
+        return view('client.product', compact('products', 'brands', 'categories', 'initialProductCount', 'filteredProductCount'));
     }
         
     public function show()
@@ -117,17 +117,17 @@ class ProductController extends Controller
     public function update(Request $request){
 
     }
-    // public function show($id)
-    // {
-    //     $product = Product::with('brand', 'category')->findOrFail($id);
+    public function getProductById($id)
+    {
+        $product = Product::with('brand', 'category')->findOrFail($id);
 
-    //     return response()->json([
-    //         'name' => $product->name,
-    //         'price' => $product->price,
-    //         'description' => $product->description,
-    //         'image' => $product->image,
-    //         'brand' => $product->brandCategory['brand'],
-    //         'category' => $product->brandCategory['category'],
-    //     ]);
-    // }
+        return response()->json([
+            'name' => $product->name,
+            'price' => $product->price,
+            'description' => $product->description,
+            'image' => $product->image,
+            'brand' => $product->brandCategory['brand'],
+            'category' => $product->brandCategory['category'],
+        ]);
+    }
 }

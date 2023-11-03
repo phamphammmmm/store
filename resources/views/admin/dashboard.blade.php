@@ -39,6 +39,10 @@
                     <i class="fa-solid fa-list"></i>
                     <a href="{{route('category.show')}}">Category</a>
                 </li>
+                <li class="dropdown-item" class="navbar-link">
+                    <i class="fa-solid fa-image"></i>
+                    <a href="{{route('contact.show')}}">Feedback</a>
+                </li>
                 <li class="navbar-link">
                     <i class="fa-solid fa-user"></i>
                     <a href="{{ route('manage') }}?show=user">Manage</a>

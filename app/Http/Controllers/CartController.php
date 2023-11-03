@@ -13,19 +13,26 @@ class CartController extends Controller
     public function cart()
     { 
         $carts= Cart::all();
-        return view('cart',compact('carts'));
+        return view('client.cart',compact('carts'));
     }
-    public function addToCart(Request $request, $product_id)
+    public function add(Request $request)
     {
-
+        $request->validate([
+            'product_id'=>'required',
+            'quantity'=>'required',
+        ]);
+        
+        $product_id = $request->input('product_id');
+        $quantity = $request->input('quantity');
         $product = Product::findOrFail($product_id);
+
+        $product_price= $product->price;
+        $price = $quantity * $product_price;
 
         $cartItem = new Cart([
             'product_id' => $product_id,
-            'product_name' => $product->name,
             'price' => $product->price,
             'quantity' => $request->quantity,
-            'image' => $product->image,
         ]);
         // Lưu thông tin vào giỏ hàng
         $cartItem->save();

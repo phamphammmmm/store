@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client/cart.css') }}">
 </head>
 
 <body>
-    @extends('layout')
+    @extends('layout.layout')
     @section('title', 'Trang chủ')
     @section('content')
     <h2 style="margin-top:70px;font-size:40px">Your Cart</h2>
@@ -26,7 +26,7 @@
                         <input type="checkbox" name="selected_cart_ids[]" value="{{ $cart->id }}">
                     </td>
                     <td>{{ $cart->id }}</td>
-                    <td><img src="{{ $cart->image }}" alt="{{ $cart->product_name }}" width="50"></td>
+                    <td><img src="{{ $cart->product->image }}" alt="{{ $cart->product->name }}" width="50"></td>
                     <td>
                         <div class="product-details">
                             <p style="font-weight: bold;">{{ $cart->product_name }}</p>
@@ -36,7 +36,7 @@
                     </td>
                     <td style="font-weight: bold;">{{ $cart->price * $cart->quantity }}$</td>
                     <td>
-                        <form action="{{ route('cart.delete', ['cart_id' => $cart->id]) }}" method="POST"
+                        <form action="{{ route('cart.delete', ['id' => $cart->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('POST')

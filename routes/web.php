@@ -8,7 +8,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\RegisterAdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
@@ -49,31 +49,28 @@ Route::middleware('web')->group(function () {
     });
 });
 
-
-Route::get('/footer',[HomeController::class,'footer'])->name('footer');
-Route::get('/header',[HomeController::class,'header'])->name('header');
+Route::get('/cart',[CartController::class,'cart'])->name('cart');
 Route::get('/home',[HomeController::class,'home'])->name('home');
 Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/footer',[HomeController::class,'footer'])->name('footer');
+Route::get('/header',[HomeController::class,'header'])->name('header');
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/product',[ProductController::class,'product'])->name('product');
-Route::get('/product1',[ProductController::class,'product1'])->name('product1');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/brand',[BrandController::class,'brand'])->name('brand');
-
-Route::get('/cart',[CartController::class,'cart'])->name('cart');
-Route::delete('/cart/{cart_id}',[CartController::class,'delete'])->name('cart.delete');
-Route::post('/cart/add/{product_id}',[CartController::class,'addToCart'])->name('cart.add');
+Route::get('/product',[ProductController::class,'product'])->name('product');
+Route::post('/cart/add',[CartController::class,'add'])->name('cart.add');
+Route::delete('/cart/delete/{id}',[CartController::class,'delete'])->name('cart.delete');
+Route::post('/contact/create', [ContactController::class,'create'])->name('contact.create');
 
 //Admin
 Route::get('/admin', function () {
     if (Auth::check()) {
         return redirect()->route('dashboard');
     } else {
-        return view('login-admin');
+        return view('client.login');
     }
 })->name('login-admin');
 
@@ -82,7 +79,7 @@ Route::middleware('web')->group(function () {
         if (Auth::check()) {
             return redirect()->route('dashboard');
         } else {
-            return view('login-admin');
+            return view('client.login');
         }
     })->name('login-admin');
 
@@ -106,14 +103,17 @@ Route::post('/register-admin', [RegisterAdminController::class, 'registerAdmin']
 Route::post('/logout-admin', [LoginAdminController::class, 'logout'])->name('logout-admin');
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/order1',[OrderController::class, 'view1'])->name('order1');
 Route::get('/order/{id}',[OrderController::class, 'view'])->name('order');
 Route::post('/receipt/save',[ReceiptController::class, 'save'])->name('receipt.save');
 
-Route::get('/brand/show',[BrandController::class,'show'])->name('brand.show');
+Route::get('/contact/show', [ContactController::class,'show'])->name('contact.show');
+Route::delete('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact.delete');
+
+Route::get('/brand/view',[BrandController::class, 'view'])->name('brand.view');
+Route::get('/brand/show',[BrandController::class, 'show'])->name('brand.show');
 Route::post('/brand/create',[BrandController::class,'create'])->name('brand.create');
-Route::delete('/brand/{id}',[BrandController::class,'delete'])->name('brand.delete');
 Route::post('/brand/update', [BrandController::class, 'update'])->name('brand.update');
+Route::delete('/brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete');
 
 Route::get('/category/view', [CategoryController::class, 'view'])->name('category.view');
 Route::get('/category/show', [CategoryController::class, 'show'])->name('category.show');
@@ -124,7 +124,7 @@ Route::delete('/category/delete/{id}', [CategoryController::class, 'delete'])->n
 Route::get('/product/view',[ProductController::class,'view'])->name('product.view');
 Route::get('/product/show',[ProductController::class,'show'])->name('product.show');
 Route::post('/product/create',[ProductController::class,'create'])->name('product.create');
-Route::delete('/product/{id}',[ProductController::class,'delete'])->name('product.delete');
+Route::delete('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
 Route::post('/product/update/{id}',[ProductController::class,'update'])->name('product.update');
 
 Route::get('/manage', [ManageController::class,'index'])->name('manage');

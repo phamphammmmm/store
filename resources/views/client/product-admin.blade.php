@@ -11,18 +11,18 @@
     <ink rel="styleshet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/admin/product.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/product-admin.css') }}">
     </style>
 </head>
 
 <body>
-    @extends('admin.dashboard')
+    @extends('dashboard')
     @section('content')
     <div class="container">
         <div class="header">
             <h1>Product</h1>
-            <div class="add-product-container">
-                <button id="addProductBtn" class="add-product-btn">Add Product</button>
+            <div class="add-category-container">
+                <button id="addCategoryBtn" class="add-category-btn">Add Product</button>
             </div>
         </div>
         @if (!empty($products))
@@ -53,14 +53,16 @@
                         <td class="brand" data-id="{{ $product->id }}">{{ $product->brand->name }}</td>
                         <td class="category" data-id="{{ $product->id }}">{{ $product->category->name }}</td>
                         <td class="action-buttons">
-                            <button class="edit-product-btn" data-id="{{ $product->id }}">
-                                <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
+                            <button>
+                                <a href="#" class="edit-product-btn" data-product-id="{{ $product->id }}">
+                                    <i class="fa-solid fa-edit"></i>
+                                </a>
                             </button>
                             <form method="POST" action="{{ route('product.delete', ['id' => $product->id]) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Are you sure to delete?')"><img
-                                        src="{{asset('storage/logo/trash.png')}}" alt="trash"></button>
+                                <button type="submit" onclick="return confirm('Are you sure to delete?')"><i
+                                        class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -75,16 +77,16 @@
     </div>
 
     <!-- Add popup -->
-    <div class="popup-overlay" id="addProductPopup">
+    <div class="popup-overlay" id="addCategoryPopup">
         <div class="popup-content">
             <h3>Add Product</h3>
-            <form id="addProductForm" action="{{ route('product.create') }}" method="POST"
+            <form id="editCategoryForm" action="{{ route('product.save') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="form-row">
                     <label for="mame">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Product" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-row">
                     <label for="price">Price:</label>
@@ -92,12 +94,11 @@
                 </div>
                 <div class="form-row">
                     <label for="description">Description:</label>
-                    <textarea name="description" id="description" class="form-control"
-                        placeholder="Enter description"></textarea>
+                    <textarea name="description" id="description" class="form-control"></textarea>
                 </div>
                 <div class="form-row">
-                    <label for="brand_id">Select a Brand:</label>
-                    <select name="brand_id" id="brandId" class="form-control" required>
+                    <label for="brand_id">Brand:</label>
+                    <select name="brand_id" id="brand_id" class="form-control" required>
                         <option value="">Select a Brand</option>
                         @foreach($brands as $brand)
                         <option value="{{ $brand->id }}">{{ $brand->name }}</option>
@@ -107,7 +108,7 @@
 
                 <div class="form-row">
                     <label for="category_id">Category:</label>
-                    <select name="category_id" class="form-control" required>
+                    <select name="category_id" id="category_id" class="form-control" required>
                         <option value="">Select a Category</option>
                         @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -133,19 +134,19 @@
                 @method('POST')
                 <input type="hidden" name="ProductId" id="editProductId">
                 <div class="form-row">
-                    <label for="editName">Name:</label>
-                    <input type="text" id="editName" name="editName" required>
+                    <label for="mame">Name:</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-row">
-                    <label for="editprice">Price:</label>
-                    <input type="number" name="editprice" id="editprice" class="form-control" required step="0.01">
+                    <label for="price">Price:</label>
+                    <input type="number" name="price" id="price" class="form-control" required step="0.01">
                 </div>
                 <div class="form-row">
                     <label for="description">Description:</label>
-                    <textarea name="editdescription" id="editdescription" class="form-control"></textarea>
+                    <textarea name="description" id="description" class="form-control"></textarea>
                 </div>
                 <div class="form-row">
-                    <label for="brand_id">Select a Brand:</label>
+                    <label for="brand_id">Brand:</label>
                     <select name="brand_id" id="brand_id" class="form-control" required>
                         <option value="">Select a Brand</option>
                         @foreach($brands as $brand)
@@ -189,7 +190,7 @@
         editButtons.forEach(button => {
             button.addEventListener("click", async function() {
                 const productId = button.dataset.productId;
-                console.log(productId)
+
                 // Fetch product data from API
                 const response = await fetch(`/api/products/${productId}`);
                 const productData = await response.json();
@@ -205,9 +206,28 @@
                 editPopup.style.display = "block";
             });
         });
+
+        // Handle form submission
+        editForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const formData = new FormData(editForm);
+
+            // Update product data using API
+            const productId = formData.get("ProductId");
+            const updateResponse = await fetch(`/api/product/${productId}`, {
+                method: "PUT",
+                body: formData
+            });
+
+            if (updateResponse.status === 200) {
+                // Product updated successfully
+                // Close the edit popup
+                editPopup.style.display = "none";
+            }
+        });
     });
     </script>
-    <script src="{{ asset('js/admin/product.js') }}"></script>
+    <script src="{{ asset('js/category-admin.js') }}"></script>
 </body>
 
 </html>

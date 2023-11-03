@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const editBrandButtons = document.querySelectorAll('.edit-Brand-btn');
+    const editBrandButtons = document.querySelectorAll('.edit-brand-btn');
     const popupOverlay = document.querySelector('.popup-overlay');
     const closeOverlayButton = document.querySelector('.close-overlay-button');
     const editBrandForm = document.getElementById('editBrandForm');
-    const BrandIdInput = document.getElementById('Brand_id');
+    const editBrandPopup = document.getElementById('editBrandPopup');
+    const BrandIdInput = document.getElementById('brand_id');
     const nameInput = document.getElementById('name');
 
-    popupOverlay.addEventListener('click', (event) => {
-        if (event.target === popupOverlay) {
-            popupOverlay.style.display = 'none';
+    editBrandPopup.addEventListener('click', (event) => {
+        if (event.target === editBrandPopup) {
+            editBrandPopup.style.display = 'none';
         }
     });
 
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             BrandIdInput.value = BrandId;
             nameInput.value = BrandName;
 
-            popupOverlay.style.display = 'block';
+            editBrandPopup.style.display = 'block';
         });
     });
 });

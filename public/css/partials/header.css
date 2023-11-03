@@ -8,7 +8,7 @@ header {
     z-index: 999;
     padding: 10px 0px;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     border-bottom: solid 1px #fff;
 }
 
@@ -26,22 +26,27 @@ header .navbar .logo {
     color: white;
 }
 
-header .navbar h3{
-	color:  #ffffff;
-	font: normal 36px 'Roboto', cursive;
-	margin: 0 0 10px;
+header .navbar h3 {
+    color: #ffffff;
+    font: normal 36px "Roboto", cursive;
+    margin: 0 0 10px;
     font-size: 20px;
 }
 
-.logo a {
+a {
     text-decoration: none;
     color: white;
 }
-
+ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
 .cart a {
     color: white;
 }
-.search{
+.search {
     margin: 5px 10px;
     font-size: 20px;
 }
@@ -54,33 +59,28 @@ header .navbar h3{
     margin: 5px 40px 0px 0px;
     display: flex;
 }
-header .navbar .btn-icon .menu{
+header .navbar .btn-icon .menu {
     display: none;
 }
-/* header .navbar .btn-icon .form  .input input{
-    display: none;
-} */
 
-header .navbar h3 span{
-	color:  #5383d3;
+header .navbar h3 span {
+    color: #5383d3;
 }
 
-
-header .navbar .btn-icon  .searchform {
+header .navbar .btn-icon .searchform {
     position: absolute;
     top: -115%;
     right: -12rem;
     width: 50rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     display: flex;
     align-items: center;
     height: 5.5rem;
-    
 }
-header .navbar .btn-icon  .searchform.active{
+header .navbar .btn-icon .searchform.active {
     top: 115%;
 }
-header .navbar .btn-icon .searchform .input input{
+header .navbar .btn-icon .searchform .input input {
     height: 100%;
     width: 100%;
     padding: 0 1.2rem;
@@ -89,32 +89,32 @@ header .navbar .btn-icon .searchform .input input{
     color: white;
     text-transform: none;
 }
-header .navbar .btn-icon .searchform .input input::placeholder{
+header .navbar .btn-icon .searchform .input input::placeholder {
     color: white;
 }
-header .navbar .btn-icon .shopingCart{
+header .navbar .btn-icon .shopingCart {
     position: absolute;
     top: 115%;
     right: -105%;
     background: gray;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     width: 16rem;
     padding: 2rem;
 }
-header .navbar .btn-icon .shopingCart.active{
+header .navbar .btn-icon .shopingCart.active {
     right: 2rem;
 }
-header .navbar .btn-icon .shopingCart .box{
+header .navbar .btn-icon .shopingCart .box {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
     position: relative;
-} 
-header .navbar .btn-icon .shopingCart .btn{
+}
+header .navbar .btn-icon .shopingCart .btn {
     margin-top: 1rem;
     display: inline-block;
-    padding: .8rem 3rem;
+    padding: 0.8rem 3rem;
     background: white;
     color: #000;
     font-size: 1.2rem;
@@ -123,11 +123,11 @@ header .navbar .btn-icon .shopingCart .btn{
     text-align: center;
     border-radius: 10px;
 }
-header .navbar .btn-icon .shopingCart .btn:hover{
+header .navbar .btn-icon .shopingCart .btn:hover {
     background: #000;
     color: white;
 }
-header .navbar .btn-icon .shopingCart .box .fa-times{
+header .navbar .btn-icon .shopingCart .box .fa-times {
     position: absolute;
     top: 50%;
     right: 0rem;
@@ -135,90 +135,119 @@ header .navbar .btn-icon .shopingCart .box .fa-times{
     font-size: 1.5rem;
     cursor: pointer;
 }
-header .navbar .btn-icon .shopingCart .box .fa-times:hover{
+header .navbar .btn-icon .shopingCart .box .fa-times:hover {
     color: #000;
 }
 
-header .navbar .btn-icon .shopingCart .box img{
+header .navbar .btn-icon .shopingCart .box img {
     height: 4rem;
 }
-header .navbar .btn-icon .shopingCart .box .content{
+header .navbar .btn-icon .shopingCart .box .content {
     width: 60%;
 }
-header .navbar .btn-icon .shopingCart .box .content h3{
+header .navbar .btn-icon .shopingCart .box .content h3 {
     font-size: 1.7rem;
     width: 60%;
     color: #000;
 }
-header .navbar .btn-icon .shopingCart .box .content span{
+header .navbar .btn-icon .shopingCart .box .content span {
     font-size: 1rem;
-
 }
-header .navbar .btn-icon .shopingCart .box .content span .multiply{
-    margin: 0 .5rem;
+header .navbar .btn-icon .shopingCart .box .content span .multiply {
+    margin: 0 0.5rem;
 }
 
+/* account */
+#avatar-container {
+    position: relative;
+}
 
+#avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
 
+#popup {
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    z-index: 1;
+    width: 65px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(81, 55, 55, 0.1);
+}
 
+#popup a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 0;
+}
 
-
-
-
-
-
-
-
-
-
-@media(max-width:991px){
+#avatar-container:hover #popup {
+    display: block;
+}
+#popup form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout-btn {
+    border: none;
+    background: #fff;
+}
+/*responsive*/
+@media (max-width: 991px) {
     header .navbar {
         height: 100px;
         padding: 30px;
     }
-    header .navbar h3{
+    header .navbar h3 {
         font-size: 28px;
     }
-    header .navbar .button ul li{
+    header .navbar .button ul li {
         font-size: 22px;
     }
 }
 
-
-
-@media(max-width:768){
-    header{
+@media (max-width: 768) {
+    header {
         position: fixed;
     }
-    header .navbar{
+    header .navbar {
         padding: 20px;
     }
 
-    header .navbar .btn-icon .form  .input input{
+    header .navbar .btn-icon .form .input input {
         display: none;
     }
 }
 
-@media(max-width:450px){
-    header .navbar .button{
+@media (max-width: 450px) {
+    header .navbar .button {
         display: none;
     }
-    header .navbar .btn-icon{
+    header .navbar .btn-icon {
         justify-content: center;
         align-items: center;
     }
-    header .navbar .btn-icon .menu{
+    header .navbar .btn-icon .menu {
         display: block;
     }
-    header .navbar .btn-icon .form{
+    header .navbar .btn-icon .form {
         display: block;
         display: flex;
         align-items: center;
     }
-    header .navbar .btn-icon .form  .input input{
+    header .navbar .btn-icon .form .input input {
         display: block;
         background: #404246;
-    color: white;
+        color: white;
     }
     header .navbar .btn-icon .form .search {
         font-size: 15px;

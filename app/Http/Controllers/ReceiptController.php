@@ -25,10 +25,7 @@ class ReceiptController extends Controller
         }
 
         // Tạo một lần mua hàng mới
-        $order = new Order([
-            'user_id' => Auth::user()->id,
-            'date' => now(),
-        ]);
+        $order = new Order(['user_id' => Auth::user()->id,]);
         $order->save();
 
         foreach ($selectedCartIds as $cartId) {
@@ -40,7 +37,7 @@ class ReceiptController extends Controller
                     // Lưu thông tin sản phẩm trong hóa đơn
                     $receipt = new Receipt([
                         'order_id' => $order->id,
-                        'product_name' => $product->name,
+                        'product_id' => $product->id,
                         'quantity' => $cart->quantity,
                         'total' => $cart->price * $cart->quantity,
                     ]);

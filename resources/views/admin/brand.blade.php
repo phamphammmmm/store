@@ -19,7 +19,7 @@
         <div class="header">
             <h1>Brand</h1>
             <div class="add-brand-container">
-                <button id="addBrandBtn" class="add-Brand-btn">Add Brand</button>
+                <button id="addBrandBtn" class="add-brand-btn">Add Brand</button>
             </div>
         </div>
         @if (!empty($brands))
@@ -68,7 +68,7 @@
     <div class="popup-overlay" id="addBrandPopup">
         <div class="popup-content">
             <h3>Add Brand</h3>
-            <form id="editBrandForm" action="{{ route('brand.create') }}" method="POST" enctype="multipart/form-data">
+            <form id="addBrandForm" action="{{ route('brand.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="form-row">
@@ -86,13 +86,13 @@
     </div>
 
     <!-- Edit popup -->
-    <div class="popup-overlay">
+    <div class="popup-overlay" id="editBrandPopup">
         <div class="popup-content">
             <h2>Edit Brand</h2>
             <form id="editBrandForm" action="{{ route('brand.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <input type="hidden" id="Brand_id" name="Brand_id" value="">
+                <input type="hidden" id="brand_id" name="brand_id" value="">
                 <div class="form-row">
                     <label for="name">Brand:</label>
                     <input type="text" id="name" name="name" placeholder="Brand Name">
