@@ -48,6 +48,11 @@
                             <button type="submit" class="logout-btn">Logout
                             </button>
                         </form>
+                        @if ($user->role === 'admin' || $user->role === 'moderator')
+                        <button style="border: none;width: 15px;background: none;">
+                            <a href="http://127.0.0.1:8000/dashboard">Dashboard</a>
+                        </button>
+                        @endif
                     </div>
                 </div>
             </div>
