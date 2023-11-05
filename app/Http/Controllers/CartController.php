@@ -15,7 +15,7 @@ class CartController extends Controller
         $carts= Cart::all();
         return view('client.cart',compact('carts'));
     }
-    public function add(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'product_id'=>'required',

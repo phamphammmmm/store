@@ -17,7 +17,7 @@
             <div class="content">
                 <div class="title">
                     <h1>
-                        SMART WATCHES FACILITATE YOUR EVERY ACTIVITY
+                        HOUSEWARE FACILITATE YOUR EVERY ACTIVITY
                     </h1>
                     <h3>
                         Everyone needs a smartwatch that helps to accourately track all-day steps, calorie consumption,
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="famous-branch">
-                    <img src="storage/home/hublot-steel.jpg" alt="home">
+                    <img src="{{asset('storage/logo/home.jpg')}}" alt="home">
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <div class="preview-images">
                     <div class="img">
                         <div class="info">
-                            <img src="https://cdn2.jomashop.com/media/catalog/product/cache/df24c858758eb768757877f23cd17493/r/o/rolex-cosmograph-daytona-champagne-dial-steel-and-18k-yellow-gold-men_s-watch-116503-78593.jpg"
+                            <img src="{{asset('storage/logo/New Arrivals by Category _ Crate & Barrel.jfif')}}"
                                 alt="image">
                             <div class="infomation">
                                 <div class="span"><span class="title">ROLEX DAYTONA</span></div>
@@ -56,8 +56,7 @@
                     </div>
                     <div class="img">
                         <div class="info">
-                            <img src="https://th.bing.com/th/id/OIP.e9RmlaGr_ILzmprmgntYNAAAAA?pid=ImgDet&w=156&h=199&c=7&dpr=1.1"
-                                alt="image">
+                            <img src="{{asset('storage/logo/Rendering _ CGI Archives - leManoosh.jfif')}}" alt="image">
                             <div class="infomation">
                                 <div class="span"><span class="title">BREQUET VINTAGE</span></div>
                                 <p class="price">$32.700</p>
@@ -66,8 +65,7 @@
                     </div>
                     <div class="img">
                         <div class="info">
-                            <img src="https://th.bing.com/th/id/OIP.iXPl5BnJZTCGeWFKOaEsMAAAAA?pid=ImgDet&rs=1"
-                                alt="image">
+                            <img src="{{asset('storage/logo/Smeg Kitchen Appliances.jfif')}}" alt="image">
                             <div class="infomation">
                                 <div class="span"><span class="title">HUBLOT DIAMOND</span></div>
                                 <p class="price">$56.500</p>
@@ -76,7 +74,7 @@
                     </div>
                     <div class="img">
                         <div class="info">
-                            <img src="https://www.chrono-shop.net/122369/rolex-rare-gold-ssteel-931537836378753-tutone-bitons-link-18k-oyster-band-bracelet-20mm.jpg"
+                            <img src="{{asset('storage/logo/Where to get the Best in Coloured Appliances.jfif')}}"
                                 alt="image">
                             <div class="infomation">
                                 <div class="span"><span class="title">ZENITH LUXURY</span></div>

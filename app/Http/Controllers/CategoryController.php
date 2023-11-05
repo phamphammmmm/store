@@ -105,4 +105,19 @@ class CategoryController extends Controller
             return redirect()->back()->with('error', 'Category not found.');
         }
     }
+
+
+    public function getTopCategoriesWithMostJobs()
+    {
+        $categories = Category::withCount('jobs')->orderByDesc('jobs_count')->take(5)->get();
+
+        return $categories;
+    }
+
+    public function getCategoryData()
+    {
+        $categories = Category::withCount('jobs')->orderBy('created_at','asc')->get(['id', 'name']);
+
+        return response()->json($categories);
+    }
 }

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
-    public function view()
+    public function brand()
     {
         $brands = Brand::with('products')->get();
         return view('client.brand', compact('brands'));

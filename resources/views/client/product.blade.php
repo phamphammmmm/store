@@ -10,7 +10,7 @@
     @extends('layout.layout')
     @section('title', 'Trang chủ')
     @section('content')
-    <h3>Product Items</h3>
+    <h3>Product</h3>
     <div class="container-product">
         <div class="select">
             <p>Avaiable:{{ $initialProductCount }}</p>
@@ -71,13 +71,15 @@ border-radius: 5px;color: white;background: #00884b;border: none;">Search</butto
                         <div class="img">
                             <img src="{{ $product->image }}" alt="{{ $product->name }}" width="200px">
                         </div>
-                        <h4>{{ $product->name }}</h4>
-                        <div class="price">
-                            <p>Price: {{ $product->price }}</p>
+                        <div class="product-info">
+                            <div class="generall-info">
+                                <h5>{{ $product->name }}</h5>
+                                <p>{{ $product->brand->name }}</p>
+                            </div>
+                            <div class="price">
+                                <h5>{{ $product->price }}$</h5>
+                            </div>
                         </div>
-                        <p class="hidden">Description: {{ $product->description }}</p>
-                        <p>Brand: {{ $product->brand->name }}</p>
-                        <p>Category: {{ $product->category->name }}</p>
                         <button class="view-product-btn" data-product-id="{{ $product->id }}">View</button>
                     </li>
                     @endforeach
@@ -88,7 +90,8 @@ border-radius: 5px;color: white;background: #00884b;border: none;">Search</butto
 
     <div class="product-popup" id="productPopup">
         <div class="product-popup-content">
-            <form class="add-to-cart-form" action="{{route('cart.add')}}" method="POST" enctype="multipart/form-data">
+            <form class="add-to-cart-form" action="{{route('cart.create')}}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <input type="hidden" name="product_id" value="">

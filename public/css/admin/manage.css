@@ -89,7 +89,7 @@ td {
 }
 
 .fa-solid {
-    color: #9555ff;
+    color: #00884b;
 }
 
 .custom-checkbox input[type="checkbox"] {
@@ -115,15 +115,6 @@ button[type="submit"] {
     border: none;
 }
 
-.export-user-btn {
-    padding: 10px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    background: #9555ff;
-    color: #fff;
-    cursor: pointer;
-}
 .actions {
     display: flex;
     justify-content: center;
@@ -231,7 +222,7 @@ button[type="submit"] {
     border-radius: 10px;
     padding: 10px;
     border: none;
-    background: #9555ff;
+    background: #00884b;
 }
 
 .close-overlay-button {
@@ -249,7 +240,7 @@ button[type="submit"] {
     height: 40px;
     border: none;
     border-radius: 5px;
-    background: #9555ff;
+    background: #00884b;
     color: #fff;
     cursor: pointer;
 }
@@ -263,7 +254,7 @@ button[type="submit"] {
     border-radius: 10px;
     padding: 10px;
     border: none;
-    background: #9555ff;
+    background: #00884b;
 }
 /* lineChart */
 canvas {

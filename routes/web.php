@@ -8,13 +8,14 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RegisterAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 
 //User
 Route::get('/', function () {
@@ -49,21 +50,29 @@ Route::middleware('web')->group(function () {
     });
 });
 
-Route::get('/cart',[CartController::class,'cart'])->name('cart');
-Route::get('/home',[HomeController::class,'home'])->name('home');
-Route::get('/about',[HomeController::class,'about'])->name('about');
+
 Route::get('/footer',[HomeController::class,'footer'])->name('footer');
 Route::get('/header',[HomeController::class,'header'])->name('header');
+Route::get('/home',[HomeController::class,'home'])->name('home');
+Route::get('/about',[HomeController::class,'about'])->name('about');
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/brand',[BrandController::class,'brand'])->name('brand');
 Route::get('/product',[ProductController::class,'product'])->name('product');
-Route::post('/cart/add',[CartController::class,'add'])->name('cart.add');
+Route::get('/product1',[ProductController::class,'product1'])->name('product1');
+
+Route::get('/brand',[BrandController::class,'brand'])->name('brand');
+
+Route::get('/cart',[CartController::class,'cart'])->name('cart');
 Route::delete('/cart/delete/{id}',[CartController::class,'delete'])->name('cart.delete');
-Route::post('/contact/create', [ContactController::class,'create'])->name('contact.create');
+Route::post('/cart/create',[CartController::class,'create'])->name('cart.create');
+
+Route::get('/contact',[ContactController::class,'show'])->name('contact.show');
+Route::get('/contact/create',[ContactController::class,'create'])->name('contact.create');
+Route::get('/contact/delete/{id}',[ContactController::class,'delete'])->name('contact.delete');
+
 
 //Admin
 Route::get('/admin', function () {
@@ -103,11 +112,9 @@ Route::post('/register-admin', [RegisterAdminController::class, 'registerAdmin']
 Route::post('/logout-admin', [LoginAdminController::class, 'logout'])->name('logout-admin');
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/order1',[OrderController::class, 'view1'])->name('order1');
 Route::get('/order/{id}',[OrderController::class, 'view'])->name('order');
 Route::post('/receipt/save',[ReceiptController::class, 'save'])->name('receipt.save');
-
-Route::get('/contact/show', [ContactController::class,'show'])->name('contact.show');
-Route::delete('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact.delete');
 
 Route::get('/brand/view',[BrandController::class, 'view'])->name('brand.view');
 Route::get('/brand/show',[BrandController::class, 'show'])->name('brand.show');
@@ -124,7 +131,7 @@ Route::delete('/category/delete/{id}', [CategoryController::class, 'delete'])->n
 Route::get('/product/view',[ProductController::class,'view'])->name('product.view');
 Route::get('/product/show',[ProductController::class,'show'])->name('product.show');
 Route::post('/product/create',[ProductController::class,'create'])->name('product.create');
-Route::delete('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
+Route::delete('/product/{id}',[ProductController::class,'delete'])->name('product.delete');
 Route::post('/product/update/{id}',[ProductController::class,'update'])->name('product.update');
 
 Route::get('/manage', [ManageController::class,'index'])->name('manage');

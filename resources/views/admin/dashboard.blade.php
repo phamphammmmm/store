@@ -50,7 +50,7 @@
             </ul>
             <div id="spacing" style="height:30%;"> </div>
             <div class="logout">
-                <form action="{{route('logout-admin')}}" method="POST" style="display:flex;">
+                <form action="{{route('logout')}}" method="POST" style="display:flex;">
                     @csrf
                     <button class="logout-circle">
                         <i class="fa-solid fa-right-from-bracket"></i>
